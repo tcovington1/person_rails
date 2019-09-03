@@ -1,2 +1,7 @@
-<h1>Humans#show</h1>
-<p>Find me in app/views/humans/show.html.erb</p>
+<h1><%= @human.name  %></h1>
+
+<p>What would you like to do?</p>
+
+<%= link_to 'Edit Person', edit_human_path(@human)  %>
+<%= link_to 'Delete Person', @human, method: :destroy  %>
+<%= link_to 'Go Back', humans_path %>

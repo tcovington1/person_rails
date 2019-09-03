@@ -1,19 +1,20 @@
 class HumansController < ApplicationController
+  before_action :set_human, only: [:show, :edit, :update, :destroy]
   def index
-    @humans = Humen.all
+    @humans = Human.all
   end
 
   def show
-    @human = Humen.find(params[:id])
+    # @human = Human.find(params[:id])
   end
 
   def new
-    @human = Humen.new
+    @human = Human.new
     render partial: 'form'
   end
 
   def create
-    @human = Humen.new(human_params)
+    @human = Human.new(human_params)
     if @human.save
       redirect_to humans_path
     else
@@ -22,12 +23,12 @@ class HumansController < ApplicationController
   end
 
   def edit
-    @human = Humen.find(params[:id])
+    # @human = Human.find(params[:id])
     render partial: 'form'
   end
 
   def update
-    @human = Humen.find(params[:id])
+    # @human = Human.find(params[:id])
     if @human.update(human_params)
       redirect_to humans_path
     else
@@ -36,12 +37,17 @@ class HumansController < ApplicationController
   end
 
   def destroy
-    Humen.find(params[:id]).destroy
+    Human.find(params[:id]).destroy
+    redirect_to humans_path
   end
 
   private
   def human_params
     params.require(:human).permit(:name, :age, :hair_color, :eye_color, :gender, :alive)
  end
+
+ def set_human
+  @human = Human.find(params[:id])
+end
 
 end
