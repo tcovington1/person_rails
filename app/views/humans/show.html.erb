@@ -1,7 +1,7 @@
-<h1><%= @human.name  %></h1>
+<h1>Name: <%= @human.name  %></h1>
 
 <p>What would you like to do?</p>
 
-<%= link_to 'Edit Person', edit_human_path(@human)  %>
-<%= link_to 'Delete Person', @human, method: :destroy  %>
-<%= link_to 'Go Back', humans_path %>
+<button type="button" class="btn btn-primary"><a><%= link_to 'Edit Person', edit_human_path(@human)  %></button>
+<button type="button" class="btn btn-primary"><a><%= link_to 'Delete Person', @human, method: :destroy  %></button>
+<button type="button" class="btn btn-primary"><a><%= link_to 'Go Back', humans_path %></button
